@@ -10,6 +10,7 @@ const clientesRoutes = require('./routes/clientes.routes');
 
 const app = express();
 
+
 app.use(cors());
 app.use(express.json());
 
@@ -21,9 +22,18 @@ app.get('/health', (req, res) => {
 // Módulos de la API
 app.use('/clientes', clientesRoutes);
 
+module.exports = app;
+const equiposRoutes = require('./routes/equipos.routes');
+app.use('/equipos', equiposRoutes);
+
+const lineasProductoRoutes = require('./routes/lineasProducto.routes');
+app.use('/lineas-producto', lineasProductoRoutes);
+
+const contratosRoutes = require('./routes/contratos.routes');
+app.use('/contratos', contratosRoutes);
+
 // Manejo de rutas no encontradas
 app.use((req, res) => {
   res.status(404).json({ error: 'Ruta no encontrada' });
 });
 
-module.exports = app;
