@@ -32,6 +32,15 @@ app.use('/lineas-producto', lineasProductoRoutes);
 const contratosRoutes = require('./routes/contratos.routes');
 app.use('/contratos', contratosRoutes);
 
+const pedidosRoutes = require('./routes/pedidos.routes');
+app.use('/pedidos', pedidosRoutes);
+
+const usuariosRoutes = require('./routes/usuarios.routes');
+app.use('/usuarios', usuariosRoutes);
+
+const pagosRoutes = require('./routes/pagos.routes');
+app.use('/pagos', pagosRoutes);
+
 // Manejo de rutas no encontradas
 app.use((req, res) => {
   res.status(404).json({ error: 'Ruta no encontrada' });
